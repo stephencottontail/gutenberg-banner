@@ -19,7 +19,9 @@ add_action( 'init', function() {
     wp_register_style( 'banner-editor-style', plugins_url( 'dist/editor.css', __FILE__ ), array( 'wp-edit-blocks' ) );
     
     register_block_type( 'limeguten/banner', array(
-        'editor_script' => 'banner-script'
+        'editor_script' => 'banner-script',
+        'editor_style'  => 'banner-editor-style',
+        'style'   => 'banner-block-style'
     ) );
 } );
 
@@ -36,6 +38,5 @@ add_filter( 'block_categories', function( $categories, $post ) {
     return array_merge( $categories, array( array(
         'slug'  => 'limecuda',
         'title' => 'LimeCuda Blocks',
-        'icon'  => 'edit'
     ) ) );
 }, 10, 2 );
