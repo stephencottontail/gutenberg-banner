@@ -17,4 +17,25 @@ add_action( 'init', function() {
      */
     wp_register_style( 'banner-block-style', plugins_url( 'dist/block.css', __FILE__ ) );
     wp_register_style( 'banner-editor-style', plugins_url( 'dist/editor.css', __FILE__ ), array( 'wp-edit-blocks' ) );
+    
+    register_block_type( 'limeguten/banner', array(
+        'editor_script' => 'banner-script'
+    ) );
 } );
+
+/**
+ * Create new category for LimeCuda blocks
+ *
+ * It is possible to use an SVG icon, but it's recommended to use the
+ * SVG React element like you would do for a block. See the link for
+ * more information.
+ *
+ * @link https://wordpress.org/gutenberg/handbook/designers-developers/developers/filters/block-filters/#managing-block-categories
+ */
+add_filter( 'block_categories', function( $categories, $post ) {
+    return array_merge( $categories, array( array(
+        'slug'  => 'limecuda',
+        'title' => 'LimeCuda Blocks',
+        'icon'  => 'edit'
+    ) ) );
+}, 10, 2 );
