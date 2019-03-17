@@ -9,7 +9,7 @@
  */
 
 add_action( 'init', function() {
-    wp_register_script( 'banner-script', plugins_url( 'dist/blocks.js', __FILE__ ), array( 'wp-blocks', 'wp-components', 'wp-element', 'wp-editor', 'wp-compose' ) );
+    wp_register_script( 'banner-script', plugins_url( 'dist/blocks.js', __FILE__ ), array( 'wp-api-fetch', 'wp-blocks', 'wp-components', 'wp-compose', 'wp-element', 'wp-editor', 'wp-html-entities', 'wp-keycodes', 'wp-url' ) );
     /**
      * Despite what some sources may say, it's no longer necessary to have
      * any dependencies for the block style, and from my testing, it may
