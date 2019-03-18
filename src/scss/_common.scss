@@ -1,3 +1,10 @@
 $base-font-size: 16px;
 $base-spacing: 22px;
 $base-line-height: $base-spacing / $base-font-size;
+
+$colors: (
+    'gray-500': #121212,
+    'gray-400': #2d2d2d,
+    'gray-200': #c8c8c8,
+    'gray-100': #f7f7f7
+);
