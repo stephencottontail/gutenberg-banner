@@ -2,13 +2,27 @@
 
 .wp-block-limeguten-banner {
     line-height: $base-line-height;
-    padding: $base-spacing;
-    
+    padding: $base-spacing 0;
+
+    .title {
+        margin: 0 0 $base-spacing 0;
+    }
+
+    .content {
+        margin: $base-spacing 0;
+    }
+
+    .cta {
+        text-align: center;
+    }
+
     .button {
         display: inline-block;
         background-color: map-get( $colors, gray-400 );
         color: map-get( $colors, gray-100 );
         font-weight: 700;
+        min-width: 25%;
+        max-width: 75%;
         padding: ( $base-spacing / 2 );
 
         &:hover,
