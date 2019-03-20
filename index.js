@@ -32,10 +32,14 @@ registerBlockType( 'limeguten/banner', {
     attributes: {
         title: {
             type: 'string',
+            source: 'html',
+            selector: '.title',
             default: ''
         },
         content: {
             type: 'string',
+            source: 'html',
+            selector: '.content',
             default: ''
         },
         url: {
@@ -57,7 +61,7 @@ registerBlockType( 'limeguten/banner', {
                     <label>{ 'Banner CTA' }</label>
                     <PlainText
                     value={ text }
-                    onChange={ ( text ) => setAttributes( text ) }
+                    onChange={ ( text ) => setAttributes( { text: text } ) }
                     placeholder={ 'Click here...' }
                     />
                     <URLInputButton
@@ -68,7 +72,22 @@ registerBlockType( 'limeguten/banner', {
             </div>
         )
     },
-    save( { className } ) {
-        return <div className={ className }>Hello Frontend!</div>
+    save( { className, props, attributes } ) {
+        const { title, content, url, text } = attributes
+        
+        return (
+            /**
+             * `className` as a variable works here, but if I do
+             * `console.log( className )` in the `save()` function, it
+             * comes back as undefined. WELCOME TO THE WORLD OF THE FUTURE.
+             */
+            <div className={ className }>
+                <h1 className={ 'title' }>{ title }</h1>
+                <div className={ 'content' }>{ content }</div>
+                <div className={ 'cta' }>
+                    <a href={ url } className={ 'button' } role="button">{ text }</a>
+                </div>
+            </div>
+        )
     }
 } )
