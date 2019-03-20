@@ -2,28 +2,9 @@ import './src/scss/block.scss'
 import './src/scss/editor.scss'
 import { registerBlockType } from '@wordpress/blocks'
 import { PlainText } from '@wordpress/editor'
-import { SVG, Path, TextControl, TextareaControl } from '@wordpress/components'
+import { SVG, Path } from '@wordpress/components'
 import { withState } from '@wordpress/compose'
 import URLInputButton from './src/vendor/url-input/button'
-
-const BannerTitle = withState( {
-    title: '',
-} )( ( { title, setState } ) => ( 
-    <TextControl
-    label="Banner Title"
-    value={ title }
-    onChange={ ( title ) => setState( { title } ) }
-    />
-) )
-const BannerContent = withState( {
-    content: '',
-} )( ( { content, setState } ) => ( 
-    <TextareaControl
-    label="Banner Content"
-    value={ content }
-    onChange={ ( content ) => setState( { content } ) }
-    />
-) )
 
 registerBlockType( 'limeguten/banner', {
     title: 'Banner',
@@ -55,10 +36,22 @@ registerBlockType( 'limeguten/banner', {
         
         return (
             <div className={ className }>
-                <BannerTitle />
-                <BannerContent />
+                <div className={ 'banner-content' }>
+                    <label for={ 'banner-title' }>Banner Title</label>
+                    <PlainText
+                    id={ 'banner-title' }
+                    value={ title }
+                    onChange={ ( title ) => setAttributes( { title: title } ) }
+                    />
+                    <label for={ 'banner-content' }>Banner Content</label>
+                    <PlainText
+                    id={ 'banner-content' }
+                    value={ content }
+                    onChange={ ( content ) => setAttributes( { content: content } ) }
+                    />
+                </div>
                 <div className={ 'banner-cta' }>
-                    <label>{ 'Banner CTA' }</label>
+                    <span className={ 'banner-cta-label' }>{ 'Banner CTA' }</span>
                     <PlainText
                     value={ text }
                     onChange={ ( text ) => setAttributes( { text: text } ) }

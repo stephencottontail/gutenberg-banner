@@ -4,45 +4,57 @@
     line-height: $base-line-height;
     padding: $base-spacing;
 
-    label {
+    label,
+    .banner-cta-label {
         display: block;
         color: map-get( $colors, gray-500 );
         font-size: 13px;
         margin-bottom: 4px;
     }
 
+    .editor-plain-text {
+        background-color: map-get( $colors, gray-100 );
+        border: 1px solid map-get( $colors, gray-500 );
+        color: map-get( $colors, gray-500 );
+        padding: ( $base-spacing / 2 );
+        
+        &:hover,
+        &:focus {
+            background-color: white;
+        }
+    }
+    
     .banner-cta {
         border-top: 1px solid map-get( $colors, gray-200 );
         margin-top: $base-spacing;
         padding-top: $base-spacing;
-    }
 
-    .editor-plain-text {
-        background-color: map-get( $colors, gray-400 );
-        color: map-get( $colors, gray-100 );
-        font-weight: 700;
-        padding: ( $base-spacing / 2 );
-
-        &:hover,
-        &:focus {
-            background-color: map-get( $colors, gray-500 );
+        .editor-plain-text {
+            background-color: map-get( $colors, gray-400 );
             color: map-get( $colors, gray-100 );
-        }
-        
-        &::-webkit-input-placeholder {
-            color: map-get( $colors, gray-100 );
-        }
-
-        &::-moz-placeholder {
-            color: map-get( $colors, gray-100 );
-        }
-
-        &:-ms-input-placeholder {
-            color: map-get( $colors, gray-100 );
-        }
-
-        &:-moz-placeholder {
-            color: map-get( $colors, gray-100 );
+            font-weight: 700;
+    
+            &:hover,
+            &:focus {
+                background-color: map-get( $colors, gray-500 );
+                color: map-get( $colors, gray-100 );
+            }
+            
+            &::-webkit-input-placeholder {
+                color: map-get( $colors, gray-100 );
+            }
+    
+            &::-moz-placeholder {
+                color: map-get( $colors, gray-100 );
+            }
+    
+            &:-ms-input-placeholder {
+                color: map-get( $colors, gray-100 );
+            }
+    
+            &:-moz-placeholder {
+                color: map-get( $colors, gray-100 );
+            }
         }
     }
     
